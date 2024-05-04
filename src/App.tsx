@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import { UnitPriceItem } from "./components/UnitPriceItem";
 
 const App = () => {
-  const [items, setItems] = useState<string[]>([]);
+  const [items, setItems] = useState<any>([]);
   const [unitName, setUnitName] = useState("");
+  const [nextId, setNextId] = useState(1);
 
   const handleAddItems = () => {
     if (unitName.trim() !== "") {
-      setItems([...items, unitName]);
+      const newItem = {
+        id: nextId,
+        unitName: unitName,
+      };
+      setItems([...items, newItem]);
+      setNextId((prevId) => prevId + 1);
       setUnitName("");
     }
   };
 
   const handleRemoveItems = (indexToRemove: number) => {
-    setItems(items.filter((_, index) => index !== indexToRemove));
+    setItems(
+      items.filter((item: any, index: number) => item.id !== indexToRemove)
+    );
   };
 
   const handleInputChange = (e: any) => {
@@ -42,11 +50,11 @@ const App = () => {
           <div className="flex-[3] text-gray-1 font-medium">Supplier</div>
         </div>
 
-        {items.map((name, index) => (
+        {items.map((item: any, index: any) => (
           <UnitPriceItem
-            key={index}
-            index={index}
-            unitName={name}
+            key={item.id}
+            index={item.id}
+            unitName={item.unitName}
             onRemove={handleRemoveItems}
           />
         ))}

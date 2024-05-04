@@ -52,7 +52,7 @@ export const UnitPriceItem = ({ index, unitName, onRemove }: any) => {
     setAdditionUnitOption(() =>
       unitOption.filter((item: any) => item.id !== index)
     );
-  }, [unitOption]);
+  }, [index, unitOption, unitValue]);
 
   const selectRef = useRef<any>(null);
   useEffect(() => {
@@ -150,7 +150,12 @@ export const UnitPriceItem = ({ index, unitName, onRemove }: any) => {
       </div>
       <div
         className="cursor-pointer absolute right-3 top-1/2 -translate-y-2/4"
-        onClick={() => onRemove(index)}
+        onClick={() => {
+          onRemove(index);
+          setUnitOption((prev: any) =>
+            prev.filter((item: any) => item.id !== index)
+          );
+        }}
       >
         <CloseCircleFilled className="hover:text-orange-1 transition-all duration-150" />
       </div>
