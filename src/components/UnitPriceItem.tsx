@@ -74,7 +74,7 @@ export const UnitPriceItem = ({ index, unitName, onRemove }: any) => {
 
   const handleChangeQuantity = (e: any) => {
     const userInput = e.target.value;
-    const regex = /^[0-9]*$/;
+    const regex = /^[0-9.]*$/;
     if (regex.test(userInput)) {
       setQuantityValue(userInput);
     }
