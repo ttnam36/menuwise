@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input::placeholder {
+  color: #bdbdbd;
+}
+
+select:focus-visible {
+  outline: none;
+}
+
+input:hover,
+select:hover {
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  transition: all;
+  transition-duration: 300ms;
+}
+
+input:focus-visible {
+  outline: none;
+  border: 1px solid #2db7f5;
+  border-radius: 4px;
+}
+
+.add-unit-input {
+  padding: 4px 12px;
+  width: 100%;
+  border: 1px solid #e9e9e9;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.add-unit-input::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  color: #bdbdbd;
+}
+
+.add-unit-input:focus-visible {
+  outline: none;
+  border: 1px solid #2db7f5;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.add-unit-input:hover {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
